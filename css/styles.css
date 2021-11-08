@@ -109,11 +109,6 @@ ul[class] {
   text-decoration: none;
 }
 
-.header-nav .link:hover,
-.header-nav .link:focus {
-  color: var(--accent-color);
-}
-
 .nav {
   margin-right: 300px;
 }
@@ -121,6 +116,15 @@ ul[class] {
 .header-nav {
   display: flex;
   padding-left: 0px;
+}
+
+.header-nav .link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-nav .link:hover,
+.header-nav .link:focus {
+  color: var(--accent-color);
 }
 
 .list .link {
@@ -159,7 +163,7 @@ ul[class] {
 
 .link.studio::after {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   content: "";
   width: 100%;
   height: 4px;
@@ -181,6 +185,9 @@ ul[class] {
   letter-spacing: 0.02em;
   text-decoration: none;
   align-items: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contact .link:hover,
@@ -377,13 +384,16 @@ ul[class] {
   justify-content: center;
   height: 44px;
   width: 44px;
+  border-radius: 50%;
   fill: #afb1b8;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
 .social-link:focus {
   background-color: var(--accent-color);
-  border-radius: 50%;
   fill: var(--color-white);
 }
 
@@ -447,6 +457,9 @@ ul[class] {
   fill: #afb1b8;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-link:hover,
@@ -479,6 +492,10 @@ ul[class] {
   letter-spacing: 0.03em;
   text-align: center;
   padding: 6px 22px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
@@ -529,16 +546,6 @@ ul[class] {
   margin-top: 20px;
 }
 
-.footer-link {
-  color: rgb(255, 255, 255, 60%);
-
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-
-  text-decoration: none;
-}
-
 .footer-li {
   padding-top: 9px;
 }
@@ -549,6 +556,18 @@ ul[class] {
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+}
+
+.footer-link {
+  color: rgb(255, 255, 255, 60%);
+
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+  text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .foter-link:focus,
@@ -603,6 +622,8 @@ ul[class] {
   border-radius: 50%;
   width: 44px;
   height: 44px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link:hover,
@@ -645,6 +666,8 @@ ul[class] {
   width: 370px;
   margin-right: 30px;
   margin-bottom: 30px;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project:hover,
@@ -688,6 +711,7 @@ ul[class] {
 .img-text {
   display: block;
   position: relative;
+  overflow: hidden;
 }
 
 .img-text::before {
@@ -696,8 +720,10 @@ ul[class] {
   content: "";
   width: 370px;
   height: 294px;
-  opacity: 0;
   background-color: rgba(33, 150, 243, 0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  transform: translateY(404px);
 }
 
 .text-portfolio {
@@ -705,28 +731,27 @@ ul[class] {
   display: flex;
   top: 0%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 404px);
 
   min-width: 322px;
   margin-top: 63px;
 
-  opacity: 0;
-
   font-size: 18px;
   line-height: 1.56;
   letter-spacing: 0.03em;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   color: var(--color-white);
 }
 
 .project:hover .img-text::before,
 .project:focus .img-text::before {
-  opacity: 1;
+  transform: translateY(0%);
 }
 
 .project:focus .text-portfolio,
 .project:hover .text-portfolio {
-  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 /*  --------------<!-- Модальное окно  --> --------------------------*/
@@ -740,23 +765,34 @@ ul[class] {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) skew(0deg, 0deg);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 
   width: 528px;
   height: 581px;
   background-color: #fff;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   overflow: visible;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) skew(30deg, 20deg);
 }
 
 .button-modal {
