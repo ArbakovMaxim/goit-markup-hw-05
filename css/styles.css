@@ -138,11 +138,33 @@ ul[class] {
 }
 
 .link.portfolio {
+  position: relative;
   color: var(--accent-color);
 }
 
+.link.portfolio::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+
 .link.studio {
+  position: relative;
   color: var(--accent-color);
+}
+
+.link.studio::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .header-contact {
