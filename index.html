@@ -48,7 +48,7 @@
         <section class="section hero">
             <div class="hero-blok">          
                 <h1 class="hero-title">ЭФФЕКТИВНЫЕ РЕШЕНИЯ <br> ДЛЯ ВАШЕГО БИЗНЕСА</h1>
-                <button class="hero-button" type="button">Заказать услугу</button>
+                <button class="hero-button" type="button" data-modal-open>Заказать услугу</button>
             </div> 
         </section>
 
@@ -273,7 +273,7 @@
             </div>
         </section>
 
-        <!-- Секция Постояных клиентов -->
+                <!-- Секция Постояных клиентов -->
 
         <section class="section client">
             <div class="container">
@@ -364,5 +364,18 @@
         </div>
         </div>
     </footer>
+
+
+                    <!-- Модальное окно  -->
+
+<div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+        <button type="button" class="button-modal" data-modal-close>Х</button>
+    </div>
+</div>
+
+                        <!-- javascript -->
+
+<script src="./js/modal.js"></script>
 </body>
 </html>
