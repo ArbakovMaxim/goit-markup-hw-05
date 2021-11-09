@@ -551,11 +551,12 @@ ul[class] {
 }
 
 .logo-studio-footer {
-  color: var(--color-white);
   font-family: Raleway, cursive;
   font-size: 26px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+
+  color: var(--color-white);
 }
 
 .footer-link {
